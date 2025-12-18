@@ -1,0 +1,30 @@
+[
+  {
+    "id": "logica",
+    "nome": "Lógica de Programação",
+    "curso_ids": ["SIS", "IPI"],
+    "eixo": "Tecnologia da Informação",
+    "competencias_requeridas": ["lógica", "algoritmos", "pensamento computacional"]
+  },
+  {
+    "id": "bd",
+    "nome": "Banco de Dados Relacional",
+    "curso_ids": ["SIS"],
+    "eixo": "Tecnologia da Informação",
+    "competencias_requeridas": ["sql", "modelagem de dados", "administração de banco"]
+  },
+  {
+    "id": "gestao_projetos",
+    "nome": "Gestão de Projetos e Scrum",
+    "curso_ids": ["SIS", "ADM"],
+    "eixo": "Gestão e Negócios",
+    "competencias_requeridas": ["gestão de projetos", "scrum", "liderança"]
+  },
+  {
+    "id": "metrologia",
+    "nome": "Metrologia Industrial",
+    "curso_ids": ["MEC"],
+    "eixo": "Mecânica",
+    "competencias_requeridas": ["metrologia", "processos industriais", "qualidade"]
+  }
+]

@@ -1,190 +1,3 @@
-<?php
-// Simulação de dados para o motor de sugestão (em um ambiente real, viriam de um banco de dados)
-$cursos = [
-    ['id' => 'SIS', 'nome' => 'Desenvolvimento de Sistemas', 'eixo' => 'Tecnologia da Informação'],
-    ['id' => 'IPI', 'nome' => 'Informática para Internet', 'eixo' => 'Tecnologia da Informação'],
-    ['id' => 'ADM', 'nome' => 'Administração', 'eixo' => 'Gestão e Negócios'],
-    ['id' => 'MEC', 'nome' => 'Mecânica Industrial', 'eixo' => 'Mecânica'],
-];
-
-$unidades_curriculares = [
-    [
-        'id' => 'logica',
-        'nome' => 'Lógica de Programação',
-        'curso_ids' => ['SIS', 'IPI'],
-        'eixo' => 'Tecnologia da Informação',
-        'competencias_requeridas' => ['lógica', 'algoritmos', 'pensamento computacional']
-    ],
-    [
-        'id' => 'bd',
-        'nome' => 'Banco de Dados Relacional',
-        'curso_ids' => ['SIS'],
-        'eixo' => 'Tecnologia da Informação',
-        'competencias_requeridas' => ['sql', 'modelagem de dados', 'administração de banco']
-    ],
-    [
-        'id' => 'gestao_projetos',
-        'nome' => 'Gestão de Projetos e Scrum',
-        'curso_ids' => ['SIS', 'ADM'],
-        'eixo' => 'Gestão e Negócios',
-        'competencias_requeridas' => ['gestão de projetos', 'scrum', 'liderança']
-    ],
-    [
-        'id' => 'metrologia',
-        'nome' => 'Metrologia Industrial',
-        'curso_ids' => ['MEC'],
-        'eixo' => 'Mecânica',
-        'competencias_requeridas' => ['metrologia', 'processos industriais', 'qualidade']
-    ],
-];
-
-$salas = [
-    ['id' => 'LAB1', 'nome' => 'Laboratório de Informática 1', 'capacidade' => 32, 'recursos' => 'PCs, internet, projetor'],
-    ['id' => 'LAB2', 'nome' => 'Laboratório de Informática 2', 'capacidade' => 28, 'recursos' => 'PCs, internet, projetor'],
-    ['id' => 'SALA_ADM', 'nome' => 'Sala de Gestão', 'capacidade' => 35, 'recursos' => 'TV, mesas colaborativas'],
-    ['id' => 'OFICINA_MEC', 'nome' => 'Oficina Mecânica', 'capacidade' => 20, 'recursos' => 'Máquinas e bancadas'],
-];
-
-$instrutores = [
-    [
-        'id' => 1,
-        'nome' => 'Ana Paula Silva',
-        'area_atuacao' => 'Tecnologia da Informação',
-        'competencias' => ['lógica', 'sql', 'java', 'scrum', 'docência'],
-        'matriz_competencia' => ['logica', 'bd', 'gestao_projetos'],
-        'indisponibilidades' => [
-            ['inicio' => '2024-08-01', 'termino' => '2025-07-29', 'turno' => 'MANHÃ', 'motivo' => 'Turma HT-SIS-01-24-M-12700'],
-            ['inicio' => '2025-01-10', 'termino' => '2025-01-20', 'turno' => 'MANHÃ', 'motivo' => 'Férias programadas']
-        ],
-        'pode_fora_eixo' => true
-    ],
-    [
-        'id' => 2,
-        'nome' => 'Juliano Fernando da Silva',
-        'area_atuacao' => 'Tecnologia da Informação',
-        'competencias' => ['lógica', 'javascript', 'php', 'scrum'],
-        'matriz_competencia' => ['logica', 'gestao_projetos'],
-        'indisponibilidades' => [
-            ['inicio' => '2024-08-15', 'termino' => '2025-02-20', 'turno' => 'TARDE', 'motivo' => 'HT-SIS-02-24-T-12711']
-        ],
-        'pode_fora_eixo' => true
-    ],
-    [
-        'id' => 3,
-        'nome' => 'João Carlos Oliveira',
-        'area_atuacao' => 'Tecnologia da Informação',
-        'competencias' => ['html', 'css', 'javascript', 'ux'],
-        'matriz_competencia' => ['logica'],
-        'indisponibilidades' => [
-            ['inicio' => '2025-05-10', 'termino' => '2026-12-10', 'turno' => 'NOITE', 'motivo' => 'HT-IPI-01-N-12700']
-        ],
-        'pode_fora_eixo' => true
-    ],
-    [
-        'id' => 4,
-        'nome' => 'Maria Eduarda Santos',
-        'area_atuacao' => 'Gestão e Negócios',
-        'competencias' => ['gestão de projetos', 'liderança', 'marketing'],
-        'matriz_competencia' => ['gestao_projetos'],
-        'indisponibilidades' => [
-            ['inicio' => '2024-08-01', 'termino' => '2025-07-29', 'turno' => 'MANHÃ', 'motivo' => 'HT-ADM-01-M-12700']
-        ],
-        'pode_fora_eixo' => false
-    ],
-    [
-        'id' => 5,
-        'nome' => 'Carlos Henrique Souza',
-        'area_atuacao' => 'Mecânica',
-        'competencias' => ['metrologia', 'usinagem', 'processos industriais'],
-        'matriz_competencia' => ['metrologia'],
-        'indisponibilidades' => [
-            ['inicio' => '2024-10-10', 'termino' => '2025-06-30', 'turno' => 'NOITE', 'motivo' => 'HT-MEC-02-N-12800']
-        ],
-        'pode_fora_eixo' => false
-    ],
-    [
-        'id' => 6,
-        'nome' => 'Fernanda Lopes Martins',
-        'area_atuacao' => 'Mecânica',
-        'competencias' => ['metrologia', 'projetos CAD', 'solidworks'],
-        'matriz_competencia' => ['metrologia'],
-        'indisponibilidades' => [],
-        'pode_fora_eixo' => true
-    ],
-    [
-        'id' => 7,
-        'nome' => 'Ricardo Almeida Pinto',
-        'area_atuacao' => 'Elétrica',
-        'competencias' => ['instrumentação', 'automação', 'lógica básica'],
-        'matriz_competencia' => ['logica'],
-        'indisponibilidades' => [],
-        'pode_fora_eixo' => true
-    ],
-];
-
-// Simulação de dados de turmas (em um ambiente real, viriam de um banco de dados)
-$turmas = [
-    [
-        'id' => 1,
-        'codigo_turma' => 'HT-SIS-01-24-M-12700',
-        'curso_id' => 'SIS',
-        'uc_id' => 'logica',
-        'instrutor_id' => 1,
-        'sala_id' => 'LAB1',
-        'data_inicio' => '2024-08-01',
-        'data_termino' => '2025-07-29',
-        'turno' => 'MANHÃ',
-        'num_alunos' => 30,
-        'observacoes' => 'Turma com início imediato; mantém a mesma instrutora até o fim.'
-    ],
-    [
-        'id' => 2,
-        'codigo_turma' => 'HT-IPI-01-N-12700',
-        'curso_id' => 'IPI',
-        'uc_id' => 'logica',
-        'instrutor_id' => 3,
-        'sala_id' => 'LAB2',
-        'data_inicio' => '2025-05-10',
-        'data_termino' => '2026-12-10',
-        'turno' => 'NOITE',
-        'num_alunos' => 30,
-        'observacoes' => 'Turma de Internet noturna; instrutor fixo salvo ausências.'
-    ],
-    [
-        'id' => 3,
-        'codigo_turma' => 'HT-ADM-01-M-12700',
-        'curso_id' => 'ADM',
-        'uc_id' => 'gestao_projetos',
-        'instrutor_id' => 4,
-        'sala_id' => 'SALA_ADM',
-        'data_inicio' => '2024-08-01',
-        'data_termino' => '2025-07-29',
-        'turno' => 'MANHÃ',
-        'num_alunos' => 22,
-        'observacoes' => 'Turma administrativa com ênfase em gestão de projetos.'
-    ],
-    [
-        'id' => 4,
-        'codigo_turma' => 'HT-MEC-02-N-12800',
-        'curso_id' => 'MEC',
-        'uc_id' => 'metrologia',
-        'instrutor_id' => 5,
-        'sala_id' => 'OFICINA_MEC',
-        'data_inicio' => '2024-10-10',
-        'data_termino' => '2025-06-30',
-        'turno' => 'NOITE',
-        'num_alunos' => 20,
-        'observacoes' => 'Turma de mecânica com alta carga prática.'
-    ]
-];
-
-// Função para formatar data (opcional, para exibição)
-function formatarData($data)
-{
-    return date('d/m/Y', strtotime($data));
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -364,16 +177,51 @@ function formatarData($data)
     </div>
 
     <script>
-        // Dados vindos do PHP para simulação
-        let turmasData = <?php echo json_encode($turmas); ?>;
-        let nextId = Math.max(...turmasData.map(t => t.id)) + 1;
-        const instrutoresBase = <?php echo json_encode($instrutores); ?>;
-        const cursosData = <?php echo json_encode($cursos); ?>;
-        const ucsData = <?php echo json_encode($unidades_curriculares); ?>;
-        const salasData = <?php echo json_encode($salas); ?>;
+        let turmasData = [];
+        let instrutoresBase = [];
+        let cursosData = [];
+        let ucsData = [];
+        let salasData = [];
+        let nextId = 1;
         let ultimaAvaliacao = [];
 
-        // Elementos do DOM
+        const DATA_URLS = {
+            cursos: 'data/cursos.json',
+            ucs: 'data/unidades_curriculares.json',
+            salas: 'data/salas.json',
+            instrutores: 'data/instrutores.json',
+            turmas: 'data/turmas.json'
+        };
+
+        async function carregarDadosIniciais() {
+            try {
+                const [cursosResp, ucsResp, salasResp, instrutoresResp, turmasResp] = await Promise.all([
+                    fetch(DATA_URLS.cursos),
+                    fetch(DATA_URLS.ucs),
+                    fetch(DATA_URLS.salas),
+                    fetch(DATA_URLS.instrutores),
+                    fetch(DATA_URLS.turmas)
+                ]);
+
+                cursosData = await cursosResp.json();
+                ucsData = await ucsResp.json();
+                salasData = await salasResp.json();
+                instrutoresBase = await instrutoresResp.json();
+                const turmasArquivo = await turmasResp.json();
+
+                const turmasSalvas = localStorage.getItem('turmasData');
+                turmasData = turmasSalvas ? JSON.parse(turmasSalvas) : turmasArquivo;
+                nextId = turmasData.length ? Math.max(...turmasData.map(t => t.id)) + 1 : 1;
+            } catch (error) {
+                console.error('Erro ao carregar dados de teste:', error);
+                alert('Não foi possível carregar os dados de teste. Verifique os arquivos JSON.');
+            }
+        }
+
+        function persistirTurmas() {
+            localStorage.setItem('turmasData', JSON.stringify(turmasData));
+        }
+
         const turmaModal = document.getElementById('turmaModal');
         const addTurmaBtn = document.getElementById('addTurmaBtn');
         const closeButton = document.querySelector('#turmaModal .close-button');
@@ -402,11 +250,9 @@ function formatarData($data)
         const aplicarSugestaoBtn = document.getElementById('aplicarSugestaoBtn');
         const buscarSubstitutoBtn = document.getElementById('buscarSubstitutoBtn');
 
-        // Tabela e pesquisa
         const dataTableBody = document.querySelector('.data-table tbody');
         const searchTurmaInput = document.getElementById('searchTurma');
 
-        // Funções utilitárias
         function formatDateForInput(dateString) {
             if (!dateString) return '';
             const date = new Date(dateString + 'T00:00:00');
@@ -437,7 +283,7 @@ function formatarData($data)
         };
 
         function popularCursos() {
-            cursoSelect.innerHTML = '<option value=\"\">Selecione o Curso</option>';
+            cursoSelect.innerHTML = '<option value="">Selecione o Curso</option>';
             cursosData.forEach(curso => {
                 const option = document.createElement('option');
                 option.value = curso.id;
@@ -447,7 +293,7 @@ function formatarData($data)
         }
 
         function popularSalas() {
-            salaSelect.innerHTML = '<option value=\"\">Selecione a sala</option>';
+            salaSelect.innerHTML = '<option value="">Selecione a sala</option>';
             salasData.forEach(sala => {
                 const option = document.createElement('option');
                 option.value = sala.id;
@@ -458,7 +304,7 @@ function formatarData($data)
 
         function popularUcs() {
             const cursoId = cursoSelect.value;
-            ucSelect.innerHTML = '<option value=\"\">Selecione a UC</option>';
+            ucSelect.innerHTML = '<option value="">Selecione a UC</option>';
             ucsData
                 .filter(uc => !cursoId || uc.curso_ids.includes(cursoId))
                 .forEach(uc => {
@@ -471,7 +317,7 @@ function formatarData($data)
 
         function popularInstrutoresSelect(selectedId = '') {
             const placeholder = instrutorSelect.value;
-            instrutorSelect.innerHTML = '<option value=\"\">Selecione um instrutor ou use a sugestão</option>';
+            instrutorSelect.innerHTML = '<option value="">Selecione um instrutor ou use a sugestão</option>';
             instrutoresBase.forEach(instrutor => {
                 const option = document.createElement('option');
                 option.value = instrutor.id;
@@ -529,7 +375,7 @@ function formatarData($data)
 
             if (atendeMatriz) score += 25;
             if (atendeCompetencia) score += 15;
-            if (turmaDraft.turno === 'INTEGRAL') score -= 5; // leve penalização para turnos mais longos
+            if (turmaDraft.turno === 'INTEGRAL') score -= 5;
 
             (instrutor.indisponibilidades || []).forEach(indisp => {
                 const turnoConflitante = !indisp.turno || indisp.turno === turmaDraft.turno || indisp.turno === 'INTEGRAL' || turmaDraft.turno === 'INTEGRAL';
@@ -672,7 +518,6 @@ function formatarData($data)
             }
         }
 
-        // --- Event Listeners para Abrir/Fechar Modal ---
         addTurmaBtn.onclick = () => {
             modalTitle.textContent = "Adicionar Nova Turma";
             turmaIdInput.value = '';
@@ -781,6 +626,7 @@ function formatarData($data)
                 turmasData.push(newTurma);
             }
 
+            persistirTurmas();
             updateTableDisplay(searchTurmaInput.value);
             turmaModal.style.display = 'none';
             document.body.classList.remove('modal-open');
@@ -816,6 +662,7 @@ function formatarData($data)
             const turma = turmasData.find(t => t.id == id);
             if (turma && confirm(`Tem certeza que deseja excluir a turma ${turma.codigo_turma}?`)) {
                 turmasData = turmasData.filter(t => t.id != id);
+                persistirTurmas();
                 updateTableDisplay(searchTurmaInput.value);
             }
         }
@@ -830,7 +677,8 @@ function formatarData($data)
         aplicarSugestaoBtn.addEventListener('click', aplicarMelhorSugestao);
         buscarSubstitutoBtn.addEventListener('click', sugerirSubstituto);
 
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            await carregarDadosIniciais();
             popularCursos();
             popularUcs();
             popularSalas();
@@ -844,15 +692,12 @@ function formatarData($data)
         const sidebar = document.querySelector('.sidebar');
         const dashboardContainer = document.querySelector('.dashboard-container');
 
-        // Função para abrir/fechar o menu
         menuToggle.addEventListener('click', () => {
             sidebar.classList.toggle('active');
             dashboardContainer.classList.toggle('sidebar-active');
         });
 
-        // Função para fechar o menu ao clicar fora dele
         dashboardContainer.addEventListener('click', (event) => {
-            // Verifica se o clique foi fora da sidebar e do botão de toggle
             if (dashboardContainer.classList.contains('sidebar-active') && !sidebar.contains(event.target) && !menuToggle.contains(event.target)) {
                 sidebar.classList.remove('active');
                 dashboardContainer.classList.remove('sidebar-active');

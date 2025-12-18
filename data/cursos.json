@@ -1,0 +1,6 @@
+[
+  { "id": "SIS", "nome": "Desenvolvimento de Sistemas", "eixo": "Tecnologia da Informação" },
+  { "id": "IPI", "nome": "Informática para Internet", "eixo": "Tecnologia da Informação" },
+  { "id": "ADM", "nome": "Administração", "eixo": "Gestão e Negócios" },
+  { "id": "MEC", "nome": "Mecânica Industrial", "eixo": "Mecânica" }
+]
