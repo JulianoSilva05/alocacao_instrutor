@@ -1,0 +1,76 @@
+[
+  {
+    "id": 1,
+    "nome": "Ana Paula Silva",
+    "area_atuacao": "Tecnologia da Informação",
+    "competencias": ["lógica", "sql", "java", "scrum", "docência"],
+    "matriz_competencia": ["logica", "bd", "gestao_projetos"],
+    "indisponibilidades": [
+      { "inicio": "2024-08-01", "termino": "2025-07-29", "turno": "MANHÃ", "motivo": "Turma HT-SIS-01-24-M-12700" },
+      { "inicio": "2025-01-10", "termino": "2025-01-20", "turno": "MANHÃ", "motivo": "Férias programadas" }
+    ],
+    "pode_fora_eixo": true
+  },
+  {
+    "id": 2,
+    "nome": "Juliano Fernando da Silva",
+    "area_atuacao": "Tecnologia da Informação",
+    "competencias": ["lógica", "javascript", "php", "scrum"],
+    "matriz_competencia": ["logica", "gestao_projetos"],
+    "indisponibilidades": [
+      { "inicio": "2024-08-15", "termino": "2025-02-20", "turno": "TARDE", "motivo": "HT-SIS-02-24-T-12711" }
+    ],
+    "pode_fora_eixo": true
+  },
+  {
+    "id": 3,
+    "nome": "João Carlos Oliveira",
+    "area_atuacao": "Tecnologia da Informação",
+    "competencias": ["html", "css", "javascript", "ux"],
+    "matriz_competencia": ["logica"],
+    "indisponibilidades": [
+      { "inicio": "2025-05-10", "termino": "2026-12-10", "turno": "NOITE", "motivo": "HT-IPI-01-N-12700" }
+    ],
+    "pode_fora_eixo": true
+  },
+  {
+    "id": 4,
+    "nome": "Maria Eduarda Santos",
+    "area_atuacao": "Gestão e Negócios",
+    "competencias": ["gestão de projetos", "liderança", "marketing"],
+    "matriz_competencia": ["gestao_projetos"],
+    "indisponibilidades": [
+      { "inicio": "2024-08-01", "termino": "2025-07-29", "turno": "MANHÃ", "motivo": "HT-ADM-01-M-12700" }
+    ],
+    "pode_fora_eixo": false
+  },
+  {
+    "id": 5,
+    "nome": "Carlos Henrique Souza",
+    "area_atuacao": "Mecânica",
+    "competencias": ["metrologia", "usinagem", "processos industriais"],
+    "matriz_competencia": ["metrologia"],
+    "indisponibilidades": [
+      { "inicio": "2024-10-10", "termino": "2025-06-30", "turno": "NOITE", "motivo": "HT-MEC-02-N-12800" }
+    ],
+    "pode_fora_eixo": false
+  },
+  {
+    "id": 6,
+    "nome": "Fernanda Lopes Martins",
+    "area_atuacao": "Mecânica",
+    "competencias": ["metrologia", "projetos CAD", "solidworks"],
+    "matriz_competencia": ["metrologia"],
+    "indisponibilidades": [],
+    "pode_fora_eixo": true
+  },
+  {
+    "id": 7,
+    "nome": "Ricardo Almeida Pinto",
+    "area_atuacao": "Elétrica",
+    "competencias": ["instrumentação", "automação", "lógica básica"],
+    "matriz_competencia": ["logica"],
+    "indisponibilidades": [],
+    "pode_fora_eixo": true
+  }
+]

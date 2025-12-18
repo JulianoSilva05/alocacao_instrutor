@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "codigo_turma": "HT-SIS-01-24-M-12700",
+    "curso_id": "SIS",
+    "uc_id": "logica",
+    "instrutor_id": 1,
+    "sala_id": "LAB1",
+    "data_inicio": "2024-08-01",
+    "data_termino": "2025-07-29",
+    "turno": "MANHÃ",
+    "num_alunos": 30,
+    "observacoes": "Turma com início imediato; mantém a mesma instrutora até o fim."
+  },
+  {
+    "id": 2,
+    "codigo_turma": "HT-IPI-01-N-12700",
+    "curso_id": "IPI",
+    "uc_id": "logica",
+    "instrutor_id": 3,
+    "sala_id": "LAB2",
+    "data_inicio": "2025-05-10",
+    "data_termino": "2026-12-10",
+    "turno": "NOITE",
+    "num_alunos": 30,
+    "observacoes": "Turma de Internet noturna; instrutor fixo salvo ausências."
+  },
+  {
+    "id": 3,
+    "codigo_turma": "HT-ADM-01-M-12700",
+    "curso_id": "ADM",
+    "uc_id": "gestao_projetos",
+    "instrutor_id": 4,
+    "sala_id": "SALA_ADM",
+    "data_inicio": "2024-08-01",
+    "data_termino": "2025-07-29",
+    "turno": "MANHÃ",
+    "num_alunos": 22,
+    "observacoes": "Turma administrativa com ênfase em gestão de projetos."
+  },
+  {
+    "id": 4,
+    "codigo_turma": "HT-MEC-02-N-12800",
+    "curso_id": "MEC",
+    "uc_id": "metrologia",
+    "instrutor_id": 5,
+    "sala_id": "OFICINA_MEC",
+    "data_inicio": "2024-10-10",
+    "data_termino": "2025-06-30",
+    "turno": "NOITE",
+    "num_alunos": 20,
+    "observacoes": "Turma de mecânica com alta carga prática."
+  }
+]

@@ -1,0 +1,6 @@
+[
+  { "id": "LAB1", "nome": "Laboratório de Informática 1", "capacidade": 32, "recursos": "PCs, internet, projetor" },
+  { "id": "LAB2", "nome": "Laboratório de Informática 2", "capacidade": 28, "recursos": "PCs, internet, projetor" },
+  { "id": "SALA_ADM", "nome": "Sala de Gestão", "capacidade": 35, "recursos": "TV, mesas colaborativas" },
+  { "id": "OFICINA_MEC", "nome": "Oficina Mecânica", "capacidade": 20, "recursos": "Máquinas e bancadas" }
+]
